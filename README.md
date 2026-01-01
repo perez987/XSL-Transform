@@ -202,16 +202,6 @@ To manually create a standalone .app bundle:
 
 9. Double-click `XSLTransform.app` to launch
 
-## Code Signing (Optional)
-
-For distribution, sign the application:
-
-```bash
-codesign --force --deep --sign - XSLTransform.app
-```
-
-For App Store or external distribution, use a valid Developer ID certificate.
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
