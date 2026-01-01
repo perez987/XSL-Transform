@@ -70,24 +70,6 @@ cd XSL-transform-2
    .build/release/XSLTransform
    ```
    
-## Usage
-
-### Using Sample Files
-
-1. Launch the application
-2. Click "Use Sample" for both XML and XSL files
-3. Click "Save As..." to choose where to save the HTML output
-4. Click "Transform" to perform the conversion
-5. The HTML file will be automatically opened in your default browser
-
-### Using Custom Files
-
-1. Launch the application
-2. Click "Browse..." next to "XML File" and select your XML file
-3. Click "Browse..." next to "XSL Stylesheet" and select your XSL file
-4. Click "Save As..." to choose where to save the HTML output
-5. Click "Transform" to perform the conversion
-
 ## Sample Files
 
 The application includes two sample files from the original project:
