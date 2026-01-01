@@ -126,7 +126,6 @@ The application uses:
 - **Foundation's XMLDocument** for XML/XSL processing
 - **NSOpenPanel** and **NSSavePanel** for file dialogs
 - **NSWorkspace** to open the generated HTML file
-- **Xcode project** for project management and building
 
 ## How XSL Transformation Works
 
@@ -140,10 +139,9 @@ The transformation process:
 
 ## Error Handling
 
-The application provides clear error messages for:
+The application provides error messages for:
 
-- Invalid or missing XML files
-- Invalid or missing XSL files
+- Invalid or missing XML or XSL files
 - Transformation failures
 - File write errors
 
