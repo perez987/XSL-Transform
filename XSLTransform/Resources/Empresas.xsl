@@ -11,7 +11,7 @@
             <u>XML file - > HTML document</u>
           </h3>
           <table border="1" cellpadding="4" cellspacing="4" style="font-family: Verdana; font-size: 10pt;">
-            <tr bgcolor="lightgrey">
+            <tr bgcolor="#b4eeb4">
               <td align="left">
                 <b>
                   <font color="black">ID</font>
@@ -35,7 +35,13 @@
             </tr>
             <xsl:for-each select="Phonebook/Contact">
               <xsl:sort select="Name" order="ascending"></xsl:sort>
-              <tr bgcolor="white">
+              <tr>
+                <xsl:attribute name="bgcolor">
+                  <xsl:choose>
+                    <xsl:when test="position() mod 2 = 0">gainsboro</xsl:when>
+                    <xsl:otherwise>white</xsl:otherwise>
+                  </xsl:choose>
+                </xsl:attribute>
                 <td align="right">
                   <font color="black">
                     <xsl:value-of select="ID"></xsl:value-of>
