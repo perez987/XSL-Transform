@@ -4,7 +4,7 @@ A SwiftUI application for macOS that converts XML documents to HTML using XSL tr
 
 ![AppIcon](Images/Screenshot-light.png)
 
-<img src="Images/HTML-file.png" with="540px>
+![AppIcon](Images/Screenshot-html.png)
 
 ## Features
 
