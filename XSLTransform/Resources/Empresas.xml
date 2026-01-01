@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Phonebook>
+    <Contact>
+        <ID>1</ID>
+        <Name>Case Corp.</Name>
+        <Phone1>923659854</Phone1>
+        <Phone2>169852985</Phone2>
+    </Contact>
+    <Contact>
+        <ID>2</ID>
+        <Name>Data General Corp.</Name>
+        <Phone1>902365458</Phone1>
+        <Phone2>223697120</Phone2>
+    </Contact>
+    <Contact>
+        <ID>3</ID>
+        <Name>Eastman Kodak Co.</Name>
+        <Phone1>933696369</Phone1>
+        <Phone2>258623589</Phone2>
+    </Contact>
+    <Contact>
+        <ID>4</ID>
+        <Name>Eaton Corp.</Name>
+        <Phone1>965235898</Phone1>
+        <Phone2>001544444</Phone2>
+    </Contact>
+    <Contact>
+        <ID>5</ID>
+        <Name>Gateway Inc.</Name>
+        <Phone1>900326596</Phone1>
+        <Phone2>001544444</Phone2>
+    </Contact>
+    <Contact>
+        <ID>6</ID>
+        <Name>Paine Webber Group Inc.</Name>
+        <Phone1>932145785</Phone1>
+        <Phone2>214585258</Phone2>
+    </Contact>
+    <Contact>
+        <ID>7</ID>
+        <Name>Parker Hannifin Corp.</Name>
+        <Phone1>944444102</Phone1>
+        <Phone2>224465668</Phone2>
+    </Contact>
+    <Contact>
+        <ID>8</ID>
+        <Name>Reynolds Metals Co.</Name>
+        <Phone1>923659854</Phone1>
+        <Phone2>221995416</Phone2>
+    </Contact>
+    <Contact>
+        <ID>9</ID>
+        <Name>Tenet Healthcare Corp.</Name>
+        <Phone1>944444102</Phone1>
+        <Phone2>258623589</Phone2>
+    </Contact>
+    <Contact>
+        <ID>10</ID>
+        <Name>UniGroup Inc.</Name>
+        <Phone1>932665447</Phone1>
+        <Phone2>155584598</Phone2>
+    </Contact>
+    <Contact>
+        <ID>11</ID>
+        <Name>Union Pacific Resources Group Inc.</Name>
+        <Phone1>965235898</Phone1>
+        <Phone2>002587455</Phone2>
+    </Contact>
+    <Contact>
+        <ID>12</ID>
+        <Name>Xerox Corp.</Name>
+        <Phone1>932569857</Phone1>
+        <Phone2>224465668</Phone2>
+    </Contact>  
+    <Contact>
+        <ID>13</ID>
+        <Name>Alaska Air Group Inc.</Name>
+        <Phone1>955554785</Phone1>
+        <Phone2>224465668</Phone2>
+    </Contact>
+    <Contact>
+    	<ID>14</ID>
+        <Name>Albertson&apos;s Inc.</Name>
+        <Phone1>933021254</Phone1>
+        <Phone2>326598500</Phone2>
+    </Contact>
+    <Contact>
+        <ID>15</ID>
+        <Name>Allegiance Corp.</Name>
+        <Phone1>923656987</Phone1>
+        <Phone2>555545155</Phone2>
+    </Contact>
+    <Contact>
+        <ID>16</ID>
+        <Name>Alliant Foodservice Inc.</Name>
+        <Phone1>999326012</Phone1>
+        <Phone2>239852984</Phone2>
+    </Contact>
+    <Contact>
+        <ID>17</ID>
+        <Name>AlliedSignal Inc.</Name>
+        <Phone1>923598921</Phone1>
+        <Phone2>650258622</Phone2>
+    </Contact>
+    <Contact>
+        <ID>18</ID>
+        <Name>American Family Mutual Ins. Co. Inc.</Name>
+        <Phone1>932641002</Phone1>
+        <Phone2>001544444</Phone2>
+    </Contact>
+    <Contact>
+        <ID>19</ID>
+        <Name>American Greetings Corp.</Name>
+        <Phone1>985258525</Phone1>
+        <Phone2>855882156</Phone2>
+    </Contact>
+    <Contact>
+        <ID>20</ID>
+        <Name>American Home Products Corp.</Name>
+        <Phone1>965698517</Phone1>
+        <Phone2>001544444</Phone2>
+    </Contact>
+    <Contact>
+        <ID>21</ID>
+        <Name>American International Group Inc.</Name>
+        <Phone1>932023669</Phone1>
+        <Phone2>555587111</Phone2>
+    </Contact>
+    <Contact>
+        <ID>22</ID>
+        <Name>American Standard Cos. Inc.</Name>
+        <Phone1>932665447</Phone1>
+        <Phone2>325852125</Phone2>
+    </Contact>
+    <Contact>
+        <ID>23</ID>
+        <Name>AmeriGas Partners LP</Name>
+        <Phone1>932326587</Phone1>
+        <Phone2>558745887</Phone2>
+    </Contact>
+    <Contact>
+        <ID>24</ID>
+        <Name>Amgen Inc.</Name>
+        <Phone1>900326596</Phone1>
+        <Phone2>544125651</Phone2>
+    </Contact>
+    <Contact>
+        <ID>25</ID>
+        <Name>Allmann Brothers</Name>
+        <Phone1>926358214</Phone1>
+        <Phone2>423659857</Phone2>
+    </Contact>  
+</Phonebook>

@@ -1,0 +1,42 @@
+/* Main UI Strings */
+"app.title" = "Transformación XSL";
+"app.subtitle" = "Convertir XML a HTML usando transformación XSL";
+
+/* File Selection */
+"xml.label" = "Archivo XML:";
+"xsl.label" = "Hoja de estilo XSL:";
+"output.label" = "Archivo HTML de salida:";
+"no.file.selected" = "Ningún archivo seleccionado";
+
+/* Buttons */
+"button.browse" = "Examinar...";
+"button.use.sample" = "Usar ejemplo";
+"button.save.as" = "Guardar como...";
+"button.transform" = "Transformar";
+"button.transforming" = "Transformando...";
+"button.ok" = "Aceptar";
+
+/* Status Messages */
+"status.sample.xml.loaded" = "Archivo XML de ejemplo cargado";
+"status.sample.xsl.loaded" = "Archivo XSL de ejemplo cargado";
+"status.xml.selected" = "Archivo XML seleccionado";
+"status.xsl.selected" = "Archivo XSL seleccionado";
+"status.output.selected" = "Ubicación del archivo de salida seleccionada";
+"status.transforming" = "Transformando...";
+"status.success" = "✅ Archivo HTML creado en: %@";
+"status.failed" = "❌ No se ha podido crear el archivo HTML";
+
+/* Dialog Messages */
+"dialog.select.xml" = "Seleccionar archivo XML";
+"dialog.select.xsl" = "Seleccionar hoja de estilo XSL";
+"dialog.save.html" = "Guardar salida HTML como";
+
+/* Error Messages */
+"error.title" = "Error";
+"error.sample.xml.not.found" = "No se pudo encontrar el archivo XML de ejemplo en los recursos";
+"error.sample.xsl.not.found" = "No se pudo encontrar el archivo XSL de ejemplo en los recursos";
+"error.invalid.xml" = "No se pudo cargar o analizar el archivo XML";
+"error.invalid.xsl" = "No se pudo cargar o analizar la hoja de estilo XSL";
+"error.transformation.failed" = "Falló la transformación XSL";
+"error.file.write.failed" = "No se pudo escribir el archivo HTML de salida";
+
