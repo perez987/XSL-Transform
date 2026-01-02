@@ -40,3 +40,7 @@
 "error.transformation.failed" = "Falló la transformación XSL";
 "error.file.write.failed" = "No se pudo escribir el archivo HTML de salida";
 
+/* Settings */
+"settings.replace.html" = "Reemplazar archivo HTML existente";
+"settings.desktop.default" = "Usar Escritorio como directorio predeterminado";
+

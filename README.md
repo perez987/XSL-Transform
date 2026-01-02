@@ -2,7 +2,7 @@
 
 A SwiftUI application for macOS that converts XML documents to HTML using XSL transformations.
 
-![AppIcon](Images/Screenshot-light.png)
+![AppIcon](Images/Screenshot-dark.png)
 
 ## Features
 
@@ -16,13 +16,13 @@ A SwiftUI application for macOS that converts XML documents to HTML using XSL tr
 
 ## Requirements
 
-- macOS 13.0 (Ventura) or later
+- macOS 14.0 (Sonoma) or later
 - Xcode 15.0 or later
 
 ## Project structure
 
 ```bash
-XSL-transform-2
+XSL-transform
 ├── XSLTransform.xcodeproj            # Xcode project file
 └── XSLTransform                      # Application directory
     ├── XSLTransformApp.swift         # Main app entry point
@@ -45,8 +45,8 @@ XSL-transform-2
 Clone the repository:
 
 ```bash
-git clone https://github.com/perez987/XSL-transform-2.git
-cd XSL-transform-2
+git clone https://github.com/perez987/XSL-Transform.git
+cd XSL-Transform
 ```
 
 ### Using Xcode

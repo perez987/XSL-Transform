@@ -11,11 +11,22 @@ struct ContentView: View {
     @State private var showError: Bool = false
     @State private var errorMessage: String = ""
     @State private var transformationSucceeded: Bool = false
+    @AppStorage("replaceExistingHTML") private var replaceExistingHTML: Bool = false
+    @AppStorage("useDesktopAsDefault") private var useDesktopAsDefault: Bool = false
     
     let transformer = XSLTransformer()
     
     init() {
-        // Set default output path to Desktop
+        // Load saved output path if "Replace existing HTML file" is enabled
+        if UserDefaults.standard.bool(forKey: "replaceExistingHTML") {
+            if let savedOutputPath = UserDefaults.standard.string(forKey: "savedOutputPath"),
+               !savedOutputPath.isEmpty {
+                _outputFilePath = State(initialValue: savedOutputPath)
+                return
+            }
+        }
+        
+        // Otherwise, set default output path to Desktop
         if let desktopURL = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first {
             let defaultOutputURL = desktopURL.appendingPathComponent("Empresas.html")
             _outputFilePath = State(initialValue: defaultOutputURL.path(percentEncoded: false))
@@ -125,25 +136,44 @@ struct ContentView: View {
             .disabled(xmlFilePath.isEmpty || xslFilePath.isEmpty || outputFilePath.isEmpty || isProcessing)
             
             // Status Message
-            if !transformationStatus.isEmpty {
-                Text(transformationStatus)
-                    .foregroundColor(transformationSucceeded ? .green : .primary)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(8)
-                    .padding(.horizontal)
-            }
+            Text(transformationStatus)
+                .foregroundColor(transformationSucceeded ? .green : .primary)
+                .padding()
+                .frame(maxWidth: .infinity, minHeight: 44)
+                .background(transformationStatus.isEmpty ? Color.clear : Color.gray.opacity(0.1))
+                .cornerRadius(8)
+                .padding(.horizontal)
+                .opacity(transformationStatus.isEmpty ? 0 : 1)
             
             Spacer()
+            
+            // Footer with settings
+            Divider()
+            
+            VStack(alignment: .leading, spacing: 8) {
+                Toggle(NSLocalizedString("settings.replace.html", comment: ""), isOn: $replaceExistingHTML)
+                    .onChange(of: replaceExistingHTML) { oldValue, newValue in
+                        if newValue && !outputFilePath.isEmpty {
+                            // Save current output path when enabling
+                            UserDefaults.standard.set(outputFilePath, forKey: "savedOutputPath")
+                        } else {
+                            // Clear saved output path when disabling
+                            UserDefaults.standard.removeObject(forKey: "savedOutputPath")
+                        }
+                    }
+                
+                Toggle(NSLocalizedString("settings.desktop.default", comment: ""), isOn: $useDesktopAsDefault)
+            }
+            .padding(.horizontal)
+            .padding(.bottom, 8)
         }
         .frame(
             minWidth: 600,
             idealWidth: 600,
             maxWidth: 600,
-            minHeight: 500,
-            idealHeight: 500,
-            maxHeight: 500
+            minHeight: 550,
+            idealHeight: 550,
+            maxHeight: 550
         )
         .padding()
         .alert(NSLocalizedString("error.title", comment: ""), isPresented: $showError) {
@@ -211,9 +241,11 @@ struct ContentView: View {
         panel.nameFieldStringValue = "Empresas.html"
         panel.message = NSLocalizedString("dialog.save.html", comment: "")
         
-        // Set directory to Desktop by default
-        if let desktopURL = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first {
-            panel.directoryURL = desktopURL
+        // Set directory to Desktop by default if the option is enabled
+        if useDesktopAsDefault {
+            if let desktopURL = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first {
+                panel.directoryURL = desktopURL
+            }
         }
         
         if panel.runModal() == .OK {
@@ -221,6 +253,11 @@ struct ContentView: View {
                 outputFilePath = url.path(percentEncoded: false)
                 transformationStatus = NSLocalizedString("status.output.selected", comment: "")
                 transformationSucceeded = false
+                
+                // Save the output path if "Replace existing HTML file" is enabled
+                if replaceExistingHTML {
+                    UserDefaults.standard.set(outputFilePath, forKey: "savedOutputPath")
+                }
             }
         }
     }
