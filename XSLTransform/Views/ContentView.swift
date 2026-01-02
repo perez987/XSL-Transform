@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var transformationSucceeded: Bool = false
     @AppStorage("replaceExistingHTML") private var replaceExistingHTML: Bool = false
     @AppStorage("useDesktopAsDefault") private var useDesktopAsDefault: Bool = false
+    @AppStorage("openAfterCreation") private var openAfterCreation: Bool = true
     
     let transformer = XSLTransformer()
     
@@ -143,9 +144,8 @@ struct ContentView: View {
                 .background(transformationStatus.isEmpty ? Color.clear : Color.gray.opacity(0.1))
                 .cornerRadius(8)
                 .padding(.horizontal)
-                .opacity(transformationStatus.isEmpty ? 0 : 1)
             
-            Spacer()
+            Spacer(minLength: 12)
             
             // Footer with settings
             Divider()
@@ -163,17 +163,19 @@ struct ContentView: View {
                     }
                 
                 Toggle(NSLocalizedString("settings.desktop.default", comment: ""), isOn: $useDesktopAsDefault)
+                
+                Toggle(NSLocalizedString("settings.open.after.creation", comment: ""), isOn: $openAfterCreation)
             }
             .padding(.horizontal)
-            .padding(.bottom, 8)
+            .padding(.bottom, 20)
         }
         .frame(
             minWidth: 600,
             idealWidth: 600,
             maxWidth: 600,
-            minHeight: 550,
-            idealHeight: 550,
-            maxHeight: 550
+            minHeight: 580,
+            idealHeight: 580,
+            maxHeight: 580
         )
         .padding()
         .alert(NSLocalizedString("error.title", comment: ""), isPresented: $showError) {
@@ -280,8 +282,10 @@ struct ContentView: View {
                     transformationStatus = String(format: NSLocalizedString("status.success", comment: ""), outputFilePath)
                     transformationSucceeded = true
                     
-                    // Open the generated HTML file
-                    NSWorkspace.shared.open(URL(fileURLWithPath: outputFilePath))
+                    // Open the generated HTML file only if the setting is enabled
+                    if openAfterCreation {
+                        NSWorkspace.shared.open(URL(fileURLWithPath: outputFilePath))
+                    }
                 }
             } catch {
                 DispatchQueue.main.async {

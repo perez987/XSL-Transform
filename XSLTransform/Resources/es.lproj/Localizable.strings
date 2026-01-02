@@ -43,4 +43,5 @@
 /* Settings */
 "settings.replace.html" = "Reemplazar archivo HTML existente";
 "settings.desktop.default" = "Usar Escritorio como directorio predeterminado";
+"settings.open.after.creation" = "Abrir archivo HTML después de crearlo";
 

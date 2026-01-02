@@ -43,4 +43,5 @@
 /* Settings */
 "settings.replace.html" = "Replace existing HTML file";
 "settings.desktop.default" = "Use Desktop as default directory";
+"settings.open.after.creation" = "Open HTML file after creation";
 
