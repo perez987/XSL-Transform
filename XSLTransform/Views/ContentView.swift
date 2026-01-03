@@ -147,7 +147,8 @@ struct ContentView: View {
                     .padding(.horizontal, 8)
                     .minimumScaleFactor(0.8)
             }
-            .frame(maxWidth: .infinity, maxHeight: 44)
+            .frame(maxWidth: .infinity)
+            .frame(height: 44)
             .cornerRadius(8)
             .padding(.horizontal)
             .animation(.none, value: transformationStatus)
@@ -184,9 +185,9 @@ struct ContentView: View {
             minWidth: 600,
             idealWidth: 600,
             maxWidth: 600,
-            minHeight: 580,
-            idealHeight: 580,
-            maxHeight: 580
+            minHeight: 600,
+            idealHeight: 600,
+            maxHeight: 600
         )
         .padding()
         .alert(NSLocalizedString("error.title", comment: ""), isPresented: $showError) {
