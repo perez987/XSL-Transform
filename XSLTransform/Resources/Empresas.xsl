@@ -34,7 +34,7 @@
               </td>
             </tr>
             <xsl:for-each select="Phonebook/Contact">
-              <xsl:sort select="Name" order="ascending"></xsl:sort>
+              <xsl:sort select="ID" data-type="number" order="ascending"></xsl:sort>
               <tr>
                 <xsl:attribute name="bgcolor">
                   <xsl:choose>
