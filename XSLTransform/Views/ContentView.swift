@@ -121,12 +121,12 @@ struct ContentView: View {
             
             // Transform Button
             Button(action: performTransformation) {
-                HStack {
-                    if isProcessing {
-                        ProgressView()
-                            .scaleEffect(0.8)
-                            .padding(.trailing, 5)
-                    }
+                HStack(spacing: 5) {
+                    // Always reserve space for ProgressView to prevent layout shifts
+                    ProgressView()
+                        .scaleEffect(0.8)
+                        .opacity(isProcessing ? 1 : 0)
+                        .accessibilityHidden(!isProcessing)
                     Text(isProcessing ? NSLocalizedString("button.transforming", comment: "") : NSLocalizedString("button.transform", comment: ""))
                         .fontWeight(.semibold)
                 }
@@ -135,15 +135,23 @@ struct ContentView: View {
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
             .disabled(xmlFilePath.isEmpty || xslFilePath.isEmpty || outputFilePath.isEmpty || isProcessing)
+            .animation(.none, value: isProcessing)
             
             // Status Message
-            Text(transformationStatus)
-                .foregroundColor(transformationSucceeded ? .green : .primary)
-                .padding()
-                .frame(maxWidth: .infinity, minHeight: 44)
-                .background(transformationStatus.isEmpty ? Color.clear : Color.gray.opacity(0.1))
-                .cornerRadius(8)
-                .padding(.horizontal)
+            ZStack {
+                Color.gray.opacity(0.1)
+                Text(transformationStatus)
+                    .foregroundColor(transformationSucceeded ? .green : .primary)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 8)
+                    .minimumScaleFactor(0.8)
+            }
+            .frame(maxWidth: .infinity, maxHeight: 44)
+            .cornerRadius(8)
+            .padding(.horizontal)
+            .animation(.none, value: transformationStatus)
+            .animation(.none, value: transformationSucceeded)
             
             Spacer(minLength: 12)
             
@@ -168,6 +176,9 @@ struct ContentView: View {
             }
             .padding(.horizontal)
             .padding(.bottom, 20)
+        }
+        .transaction { transaction in
+            transaction.disablesAnimations = true
         }
         .frame(
             minWidth: 600,
