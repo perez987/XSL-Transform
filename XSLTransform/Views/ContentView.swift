@@ -119,23 +119,35 @@ struct ContentView: View {
             
             Divider()
             
-            // Transform Button
+            /// Transform button
+            
+            // Transform Button option 1: hidden ProgressView, swapping text Transform / Transforming
+//            Button(action: performTransformation) {
+//                HStack(spacing: 5) {
+//                    // Always reserve space for ProgressView to prevent layout shifts
+//                    ProgressView()
+//                        .scaleEffect(0.8)
+//                        .opacity(isProcessing ? 1 : 0)
+//                        .accessibilityHidden(!isProcessing)
+//                    Text(isProcessing ? NSLocalizedString("button.transforming", comment: "") : NSLocalizedString("button.transform", comment: ""))
+//                        .fontWeight(.semibold)
+//                }
+//                .frame(minWidth: 200)
+//            }
+//            .buttonStyle(.borderedProminent)
+//            .controlSize(.large)
+//            .disabled(xmlFilePath.isEmpty || xslFilePath.isEmpty || outputFilePath.isEmpty || isProcessing)
+//            .animation(.none, value: isProcessing)
+
+            // Transform Button option 2: no ProgressView, simple button with text and action
             Button(action: performTransformation) {
-                HStack(spacing: 5) {
-                    // Always reserve space for ProgressView to prevent layout shifts
-                    ProgressView()
-                        .scaleEffect(0.8)
-                        .opacity(isProcessing ? 1 : 0)
-                        .accessibilityHidden(!isProcessing)
-                    Text(isProcessing ? NSLocalizedString("button.transforming", comment: "") : NSLocalizedString("button.transform", comment: ""))
-                        .fontWeight(.semibold)
-                }
-                .frame(minWidth: 200)
+                Text(NSLocalizedString("button.transform", comment: ""))
+                    .frame(width: 120, height: 28)
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
-            .disabled(xmlFilePath.isEmpty || xslFilePath.isEmpty || outputFilePath.isEmpty || isProcessing)
-            .animation(.none, value: isProcessing)
+            .disabled(xmlFilePath.isEmpty || xslFilePath.isEmpty || outputFilePath.isEmpty)
+            .frame(minWidth: 200)
             
             // Status Message
             ZStack {
@@ -153,9 +165,7 @@ struct ContentView: View {
             .padding(.horizontal)
             .animation(.none, value: transformationStatus)
             .animation(.none, value: transformationSucceeded)
-            
-            Spacer(minLength: 12)
-            
+                        
             // Footer with settings
             Divider()
             
