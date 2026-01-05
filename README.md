@@ -9,10 +9,10 @@ A SwiftUI application for macOS that converts XML documents to HTML using XSL tr
 - Simple localization system (English and Spanish)
 - Select XML source files
 - Select XSL stylesheet files
-- Choose output location for HTML files
+- Choose output location for HTML files (Desktop by default)
 - One-click transformation
 - Includes sample files (`Empresas.xml` and `Empresas.xsl`)
-- Automatically opens the generated HTML in your default browser
+- Automatically opens the generated HTML in your default browser (optional)
 
 ## Requirements
 
