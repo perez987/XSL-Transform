@@ -11,9 +11,9 @@ struct ContentView: View {
     @State private var showError: Bool = false
     @State private var errorMessage: String = ""
     @State private var transformationSucceeded: Bool = false
-    @AppStorage("replaceExistingHTML") private var replaceExistingHTML: Bool = false
-    @AppStorage("useDesktopAsDefault") private var useDesktopAsDefault: Bool = false
-    @AppStorage("openAfterCreation") private var openAfterCreation: Bool = true
+    @AppStorage("replaceExistingHTML") private var replaceExistingHTML: Bool = true
+    @AppStorage("useDesktopAsDefault") private var useDesktopAsDefault: Bool = true
+    @AppStorage("openAfterCreation") private var openAfterCreation: Bool = false
     
     let transformer = XSLTransformer()
     
