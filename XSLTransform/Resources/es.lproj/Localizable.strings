@@ -45,3 +45,12 @@
 "settings.desktop.default" = "Usar Escritorio como directorio predeterminado";
 "settings.open.after.creation" = "Abrir archivo HTML después de crearlo";
 
+/* Language Menu */
+"menu_language" = "Idioma";
+"menu_select_language" = "Seleccionar idioma...";
+"language_selector_title" = "Seleccionar idioma";
+"accept" = "Aceptar";
+"cancel" = "Cancelar";
+"ok" = "OK";
+"language_changed_title" = "Idioma cambiado";
+"language_changed_message" = "Reinicia la aplicación\npara aplicar el nuevo idioma.";

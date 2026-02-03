@@ -46,11 +46,11 @@
 "settings.open.after.creation" = "Open HTML file after creation";
 
 /* Language Menu */
-"menu_language" = "Language";
-"menu_select_language" = "Select Language...";
-"language_selector_title" = "Select Language";
-"accept" = "Accept";
-"cancel" = "Cancel";
+"menu_language" = "Langue";
+"menu_select_language" = "Sélectionner la langue...";
+"language_selector_title" = "Sélectionner la langue";
+"accept" = "Accepter";
+"cancel" = "Annuler";
 "ok" = "OK";
-"language_changed_title" = "Language Changed";
-"language_changed_message" = "Please restart the application\nto apply the new language.";
+"language_changed_title" = "Langue modifiée";
+"language_changed_message" = "Veuillez redémarrer l'application\npour appliquer la nouvelle langue.";
