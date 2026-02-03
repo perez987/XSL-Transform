@@ -42,7 +42,7 @@
 
 /* Settings */
 "settings.replace.html" = "Vorhandene HTML-Datei ersetzen";
-"settings.desktop.default" = "Schreibtisch als Standardverzeichnis verwenden";
+"settings.desktop.default" = "Desktop als Standardverzeichnis verwenden";
 "settings.open.after.creation" = "HTML-Datei nach der Erstellung öffnen";
 
 /* Language Menu */
