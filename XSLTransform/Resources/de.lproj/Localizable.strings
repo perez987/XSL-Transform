@@ -1,49 +1,49 @@
 /* Main UI Strings */
-"app.title" = "XSL Transform";
-"app.subtitle" = "Convert XML to HTML using XSL transformation";
+"app.title" = "XSL-Transformation";
+"app.subtitle" = "XML mit XSL-Transformation in HTML konvertieren";
 
 /* File Selection */
-"xml.label" = "XML File:";
-"xsl.label" = "XSL Stylesheet:";
-"output.label" = "Output HTML File:";
-"no.file.selected" = "No file selected";
+"xml.label" = "XML-Datei:";
+"xsl.label" = "XSL-Stylesheet:";
+"output.label" = "HTML-Ausgabedatei:";
+"no.file.selected" = "Keine Datei ausgewählt";
 
 /* Buttons */
-"button.browse" = "Browse...";
-"button.use.sample" = "Use Sample";
-"button.save.as" = "Save As...";
-"button.transform" = "Transform";
-"button.transforming" = "Transforming...";
+"button.browse" = "Durchsuchen...";
+"button.use.sample" = "Beispiel verwenden";
+"button.save.as" = "Speichern unter...";
+"button.transform" = "Transformieren";
+"button.transforming" = "Wird transformiert...";
 "button.ok" = "OK";
 
 /* Status Messages */
-"status.sample.xml.loaded" = "Sample XML file loaded";
-"status.sample.xsl.loaded" = "Sample XSL file loaded";
-"status.xml.selected" = "XML file selected";
-"status.xsl.selected" = "XSL file selected";
-"status.output.selected" = "Output file location selected";
-"status.transforming" = "Transforming...";
-"status.success" = "✅ HTML file created at: %@";
-"status.failed" = "❌ Transformation failed";
+"status.sample.xml.loaded" = "Beispiel-XML-Datei geladen";
+"status.sample.xsl.loaded" = "Beispiel-XSL-Datei geladen";
+"status.xml.selected" = "XML-Datei ausgewählt";
+"status.xsl.selected" = "XSL-Datei ausgewählt";
+"status.output.selected" = "Speicherort für Ausgabedatei ausgewählt";
+"status.transforming" = "Wird transformiert...";
+"status.success" = "✅ HTML-Datei erstellt in: %@";
+"status.failed" = "❌ Transformation fehlgeschlagen";
 
 /* Dialog Messages */
-"dialog.select.xml" = "Select XML file";
-"dialog.select.xsl" = "Select XSL stylesheet";
-"dialog.save.html" = "Save HTML output as";
+"dialog.select.xml" = "XML-Datei auswählen";
+"dialog.select.xsl" = "XSL-Stylesheet auswählen";
+"dialog.save.html" = "HTML-Ausgabe speichern als";
 
 /* Error Messages */
-"error.title" = "Error";
-"error.sample.xml.not.found" = "Could not find sample XML file in resources";
-"error.sample.xsl.not.found" = "Could not find sample XSL file in resources";
-"error.invalid.xml" = "Could not load or parse XML file";
-"error.invalid.xsl" = "Could not load or parse XSL stylesheet";
-"error.transformation.failed" = "XSL transformation failed";
-"error.file.write.failed" = "Could not write output HTML file";
+"error.title" = "Fehler";
+"error.sample.xml.not.found" = "Beispiel-XML-Datei konnte in den Ressourcen nicht gefunden werden";
+"error.sample.xsl.not.found" = "Beispiel-XSL-Datei konnte in den Ressourcen nicht gefunden werden";
+"error.invalid.xml" = "XML-Datei konnte nicht geladen oder analysiert werden";
+"error.invalid.xsl" = "XSL-Stylesheet konnte nicht geladen oder analysiert werden";
+"error.transformation.failed" = "XSL-Transformation fehlgeschlagen";
+"error.file.write.failed" = "HTML-Ausgabedatei konnte nicht geschrieben werden";
 
 /* Settings */
-"settings.replace.html" = "Replace existing HTML file";
-"settings.desktop.default" = "Use Desktop as default directory";
-"settings.open.after.creation" = "Open HTML file after creation";
+"settings.replace.html" = "Vorhandene HTML-Datei ersetzen";
+"settings.desktop.default" = "Schreibtisch als Standardverzeichnis verwenden";
+"settings.open.after.creation" = "HTML-Datei nach der Erstellung öffnen";
 
 /* Language Menu */
 "menu_language" = "Sprache";
