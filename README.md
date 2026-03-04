@@ -13,6 +13,7 @@ A SwiftUI application for macOS that converts XML documents to HTML using XSL tr
 - One-click transformation
 - Includes sample files (`Empresas.xml` and `Empresas.xsl`)
 - Automatically opens the generated HTML in your default browser (optional)
+- Includes the Sparkle updater system to check for new releases
 
 ## Requirements
 

@@ -17,7 +17,7 @@
                 sparkle:edSignature="a8iL+Yq+A+MagbNuhdbzlo5gVTOeTYF18IGCqkbWOCylWO27rC1kFAvftNu8XTrKCnLfZM6oDueoZmGF7UmKAg=="
                 type="application/octet-stream"
             />
-            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
         </item>
     </channel>
 </rss>
