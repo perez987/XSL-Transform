@@ -13,11 +13,11 @@
                 url="https://github.com/perez987/XSL-Transform/releases/download/2.0.2/XSLTransform-2.0.2.zip"
                 sparkle:version="16"
                 sparkle:shortVersionString="2.0.2"
-                length="2004362"
-                sparkle:edSignature="m0hTsmZnYzka3yO1/NEChu524Qtnt2G6lNJHjiJj8kDrvvUYQr/IAhl2Ta5gJXPH9QdxeXM5wG2zp7jQOJ3cCg=="
+                length="2087033"
+                sparkle:edSignature="llOWYM69D/ovWGj7yq42E4zNbtbXZpac2QpttMVrxLSbK4HSoVsSCA9HRebKBwKKek/xe681D1dz/3c8HZNvBQ=="
                 type="application/octet-stream"
             />
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:minimumSystemVersion>14.5</sparkle:minimumSystemVersion>
         </item>
     </channel>
 </rss>
