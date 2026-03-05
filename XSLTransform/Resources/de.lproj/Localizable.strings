@@ -54,3 +54,6 @@
 "ok" = "OK";
 "language_changed_title" = "Sprache geändert";
 "language_changed_message" = "Bitte starten Sie die Anwendung neu,\num die neue Sprache anzuwenden.";
+
+/* Sparkle updater */
+"Check for Updates..." = "Auf Updates prüfen...";
