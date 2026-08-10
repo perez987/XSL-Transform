@@ -154,27 +154,24 @@ To manually create a standalone .app bundle:
 
 1. Build in release mode:
 
-2. 
-   ```bash
+  ```bash
    swift build -c release
    ```
 
-3. Create the app structure:
-
-4. 
-   ```bash
+2. Create the app structure:
+ 
+  ```bash
    mkdir -p XSLTransform.app/Contents/MacOS
    mkdir -p XSLTransform.app/Contents/Resources
    ```
 
-5. Copy the binary:
-
-6. 
-   ```bash
+2. Copy the binary:
+ 
+  ```bash
    cp .build/release/XSLTransform XSLTransform.app/Contents/MacOS/
    ```
 
-7. Create Info.plist:
+4. Create Info.plist:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -218,7 +215,7 @@ To manually create a standalone .app bundle:
    
    Save this as `XSLTransform.app/Contents/Info.plist`
 
-9. Double-click `XSLTransform.app` to launch
+5. Double-click `XSLTransform.app` to launch
 
 ## License
 
