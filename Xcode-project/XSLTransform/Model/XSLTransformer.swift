@@ -6,7 +6,7 @@ class XSLTransformer {
         case invalidXSLFile
         case transformationFailed
         case fileWriteFailed
-        
+
         var errorDescription: String? {
             switch self {
             case .invalidXMLFile:
@@ -20,12 +20,12 @@ class XSLTransformer {
             }
         }
     }
-    
+
     func transform(xmlPath: String, xslPath: String, outputPath: String) throws {
         // Load XML document
         let xmlData: Data
         let xmlDoc: XMLDocument
-        
+
         do {
             xmlData = try Data(contentsOf: URL(fileURLWithPath: xmlPath))
             // Use .documentTidyXML option for better XSLT compatibility
@@ -33,23 +33,23 @@ class XSLTransformer {
         } catch {
             throw TransformError.invalidXMLFile
         }
-        
+
         // Load XSL stylesheet
         let xslData: Data
         let xslDoc: XMLDocument
-        
+
         do {
             xslData = try Data(contentsOf: URL(fileURLWithPath: xslPath))
             xslDoc = try XMLDocument(data: xslData, options: [])
         } catch {
             throw TransformError.invalidXSLFile
         }
-        
+
         // Validate XSL document has content
         guard xslDoc.rootElement() != nil else {
             throw TransformError.invalidXSLFile
         }
-        
+
         // Perform transformation with explicit error handling
         let resultData: Any
         do {
@@ -59,7 +59,7 @@ class XSLTransformer {
             print("XSLT transformation error: \(error.localizedDescription)")
             throw TransformError.transformationFailed
         }
-        
+
         // Convert result to string with proper HTML handling
         let htmlString: String
         if let resultXMLDoc = resultData as? XMLDocument {
@@ -75,7 +75,7 @@ class XSLTransformer {
         } else {
             throw TransformError.transformationFailed
         }
-        
+
         // Write to output file
         do {
             try htmlString.write(toFile: outputPath, atomically: true, encoding: .utf8)

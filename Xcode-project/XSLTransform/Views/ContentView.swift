@@ -1,6 +1,6 @@
+import AppKit
 import SwiftUI
 import UniformTypeIdentifiers
-import AppKit
 
 struct ContentView: View {
     @State private var xmlFilePath: String = ""
@@ -14,39 +14,40 @@ struct ContentView: View {
     @AppStorage("replaceExistingHTML") private var replaceExistingHTML: Bool = true
     @AppStorage("useDesktopAsDefault") private var useDesktopAsDefault: Bool = true
     @AppStorage("openAfterCreation") private var openAfterCreation: Bool = false
-    
+
     let transformer = XSLTransformer()
-    
+
     init() {
         // Load saved output path if "Replace existing HTML file" is enabled
         if UserDefaults.standard.bool(forKey: "replaceExistingHTML") {
             if let savedOutputPath = UserDefaults.standard.string(forKey: "savedOutputPath"),
-               !savedOutputPath.isEmpty {
+               !savedOutputPath.isEmpty
+            {
                 _outputFilePath = State(initialValue: savedOutputPath)
                 return
             }
         }
-        
+
         // Otherwise, set default output path to Desktop
         if let desktopURL = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first {
             let defaultOutputURL = desktopURL.appendingPathComponent("Empresas.html")
             _outputFilePath = State(initialValue: defaultOutputURL.path(percentEncoded: false))
         }
     }
-    
+
     var body: some View {
         VStack(spacing: 20) {
             Text(NSLocalizedString("app.title", comment: ""))
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top)
-            
+
             Text(NSLocalizedString("app.subtitle", comment: ""))
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-            
+
             Divider()
-            
+
             // XML File Selection
             VStack(alignment: .leading, spacing: 8) {
                 Text(NSLocalizedString("xml.label", comment: ""))
@@ -58,12 +59,12 @@ struct ContentView: View {
                         .padding(8)
                         .background(Color.gray.opacity(0.1))
                         .cornerRadius(5)
-                    
+
                     Button(NSLocalizedString("button.browse", comment: "")) {
                         selectFile(type: .xml)
                     }
                     .buttonStyle(.bordered)
-                    
+
                     Button(NSLocalizedString("button.use.sample", comment: "")) {
                         useDefaultXML()
                     }
@@ -71,7 +72,7 @@ struct ContentView: View {
                 }
             }
             .padding(.horizontal)
-            
+
             // XSL File Selection
             VStack(alignment: .leading, spacing: 8) {
                 Text(NSLocalizedString("xsl.label", comment: ""))
@@ -83,12 +84,12 @@ struct ContentView: View {
                         .padding(8)
                         .background(Color.gray.opacity(0.1))
                         .cornerRadius(5)
-                    
+
                     Button(NSLocalizedString("button.browse", comment: "")) {
                         selectFile(type: .xsl)
                     }
                     .buttonStyle(.bordered)
-                    
+
                     Button(NSLocalizedString("button.use.sample", comment: "")) {
                         useDefaultXSL()
                     }
@@ -96,7 +97,7 @@ struct ContentView: View {
                 }
             }
             .padding(.horizontal)
-            
+
             // Output File Selection
             VStack(alignment: .leading, spacing: 8) {
                 Text(NSLocalizedString("output.label", comment: ""))
@@ -108,7 +109,7 @@ struct ContentView: View {
                         .padding(8)
                         .background(Color.gray.opacity(0.1))
                         .cornerRadius(5)
-                    
+
                     Button(NSLocalizedString("button.save.as", comment: "")) {
                         selectOutputFile()
                     }
@@ -116,11 +117,11 @@ struct ContentView: View {
                 }
             }
             .padding(.horizontal)
-            
+
             Divider()
-            
-            /// Transform button
-            
+
+            // Transform button
+
             // Transform Button option 1: hidden ProgressView, swapping text Transform / Transforming
 //            Button(action: performTransformation) {
 //                HStack(spacing: 5) {
@@ -148,7 +149,7 @@ struct ContentView: View {
             .controlSize(.large)
             .disabled(xmlFilePath.isEmpty || xslFilePath.isEmpty || outputFilePath.isEmpty)
             .frame(minWidth: 200)
-            
+
             // Status Message
             ZStack {
                 Color.gray.opacity(0.1)
@@ -165,13 +166,13 @@ struct ContentView: View {
             .padding(.horizontal)
             .animation(.none, value: transformationStatus)
             .animation(.none, value: transformationSucceeded)
-                        
+
             // Footer with settings
             Divider()
-            
+
             VStack(alignment: .leading, spacing: 8) {
                 Toggle(NSLocalizedString("settings.replace.html", comment: ""), isOn: $replaceExistingHTML)
-                    .onChange(of: replaceExistingHTML) { oldValue, newValue in
+                    .onChange(of: replaceExistingHTML) { _, newValue in
                         if newValue && !outputFilePath.isEmpty {
                             // Save current output path when enabling
                             UserDefaults.standard.set(outputFilePath, forKey: "savedOutputPath")
@@ -180,9 +181,9 @@ struct ContentView: View {
                             UserDefaults.standard.removeObject(forKey: "savedOutputPath")
                         }
                     }
-                
+
                 Toggle(NSLocalizedString("settings.desktop.default", comment: ""), isOn: $useDesktopAsDefault)
-                
+
                 Toggle(NSLocalizedString("settings.open.after.creation", comment: ""), isOn: $openAfterCreation)
             }
             .padding(.horizontal)
@@ -201,12 +202,12 @@ struct ContentView: View {
         )
         .padding()
         .alert(NSLocalizedString("error.title", comment: ""), isPresented: $showError) {
-            Button(NSLocalizedString("button.ok", comment: ""), role: .cancel) { }
+            Button(NSLocalizedString("button.ok", comment: ""), role: .cancel) {}
         } message: {
             Text(errorMessage)
         }
     }
-    
+
     func useDefaultXML() {
         if let resourcePath = Bundle.main.path(forResource: "Empresas", ofType: "xml") {
             xmlFilePath = resourcePath
@@ -217,7 +218,7 @@ struct ContentView: View {
             showError = true
         }
     }
-    
+
     func useDefaultXSL() {
         if let resourcePath = Bundle.main.path(forResource: "Empresas", ofType: "xsl") {
             xslFilePath = resourcePath
@@ -228,13 +229,13 @@ struct ContentView: View {
             showError = true
         }
     }
-    
+
     func selectFile(type: FileType) {
         let panel = NSOpenPanel()
         panel.allowsMultipleSelection = false
         panel.canChooseDirectories = false
         panel.canChooseFiles = true
-        
+
         switch type {
         case .xml:
             panel.allowedContentTypes = [UTType.xml]
@@ -243,7 +244,7 @@ struct ContentView: View {
             panel.allowedContentTypes = [UTType(filenameExtension: "xsl")!]
             panel.message = NSLocalizedString("dialog.select.xsl", comment: "")
         }
-        
+
         if panel.runModal() == .OK {
             if let url = panel.url {
                 switch type {
@@ -258,26 +259,26 @@ struct ContentView: View {
             }
         }
     }
-    
+
     func selectOutputFile() {
         let panel = NSSavePanel()
         panel.allowedContentTypes = [UTType.html]
         panel.nameFieldStringValue = "Empresas.html"
         panel.message = NSLocalizedString("dialog.save.html", comment: "")
-        
+
         // Set directory to Desktop by default if the option is enabled
         if useDesktopAsDefault {
             if let desktopURL = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first {
                 panel.directoryURL = desktopURL
             }
         }
-        
+
         if panel.runModal() == .OK {
             if let url = panel.url {
                 outputFilePath = url.path(percentEncoded: false)
                 transformationStatus = NSLocalizedString("status.output.selected", comment: "")
                 transformationSucceeded = false
-                
+
                 // Save the output path if "Replace existing HTML file" is enabled
                 if replaceExistingHTML {
                     UserDefaults.standard.set(outputFilePath, forKey: "savedOutputPath")
@@ -285,12 +286,12 @@ struct ContentView: View {
             }
         }
     }
-    
+
     func performTransformation() {
         isProcessing = true
         transformationStatus = NSLocalizedString("status.transforming", comment: "")
         transformationSucceeded = false
-        
+
         DispatchQueue.global(qos: .userInitiated).async {
             do {
                 try transformer.transform(
@@ -298,12 +299,12 @@ struct ContentView: View {
                     xslPath: xslFilePath,
                     outputPath: outputFilePath
                 )
-                
+
                 DispatchQueue.main.async {
                     isProcessing = false
                     transformationStatus = String(format: NSLocalizedString("status.success", comment: ""), outputFilePath)
                     transformationSucceeded = true
-                    
+
                     // Open the generated HTML file only if the setting is enabled
                     if openAfterCreation {
                         NSWorkspace.shared.open(URL(fileURLWithPath: outputFilePath))
@@ -320,7 +321,7 @@ struct ContentView: View {
             }
         }
     }
-    
+
     enum FileType {
         case xml
         case xsl
