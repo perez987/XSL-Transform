@@ -17,7 +17,7 @@ A SwiftUI application for macOS that converts XML documents to HTML using XSL tr
 
 ## Requirements
 
-- macOS 14.5 (Sonoma) or later
+- macOS 13.5 (Ventura) or later
 - Xcode 15.0 or later
 
 ## Project structure

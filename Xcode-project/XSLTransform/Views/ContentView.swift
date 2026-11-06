@@ -172,7 +172,7 @@ struct ContentView: View {
 
             VStack(alignment: .leading, spacing: 8) {
                 Toggle(NSLocalizedString("settings.replace.html", comment: ""), isOn: $replaceExistingHTML)
-                    .onChange(of: replaceExistingHTML) { _, newValue in
+                    .onChange(of: replaceExistingHTML) { newValue in
                         if newValue && !outputFilePath.isEmpty {
                             // Save current output path when enabling
                             UserDefaults.standard.set(outputFilePath, forKey: "savedOutputPath")
